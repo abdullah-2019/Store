@@ -1,8 +1,14 @@
-import {Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/button';
+import db from '@/utils/db';
+//import db from "@/utils/db";
 
-function HomePage() {
-  return <div>
-    <Button variant='outline' size='lg' className='capitalize m-8'>Click me</Button>
-  </div>
-}
-export default HomePage;
+async function HomePage() {
+  const users = await db.user.findMany();
+
+  return (
+    <main>
+      <h1>Welcome to the Store</h1>
+      <p>Total users found: {users.length}</p>
+    </main>
+  );
+} 
