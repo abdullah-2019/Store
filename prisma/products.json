@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Classic Leather Sofa",
+    "company": "Lux-Furniture",
+    "description": "A premium top-grain leather sofa with high-density foam cushions for maximum comfort.",
+    "featured": true,
+    "image": "https://images.unsplash.com",
+    "price": 1299.99,
+    "clerkId": "user_2t1A9X7n8P5mQ9Z"
+  },
+  {
+    "name": "Minimalist Oak Desk",
+    "company": "EcoHome",
+    "description": "Solid oak workstation with a sleek, space-saving design and built-in cable management.",
+    "featured": false,
+    "image": "https://images.unsplash.com",
+    "price": 450.00,
+    "clerkId": "user_2t1A9X7n8P5mQ9Z"
+  },
+  {
+    "name": "Ergonomic Office Chair",
+    "company": "SitRight",
+    "description": "Breathable mesh back with adjustable lumbar support and 4D armrests for long work hours.",
+    "featured": true,
+    "image": "https://images.unsplash.com",
+    "price": 320.50,
+    "clerkId": "user_2t1A9X7n8P5mQ9Z"
+  },
+  {
+    "name": "Ceramic Table Lamp",
+    "company": "GlowCo",
+    "description": "Hand-crafted ceramic base with a linen shade, providing warm ambient lighting.",
+    "featured": false,
+    "image": "https://images.unsplash.com",
+    "price": 89.00,
+    "clerkId": "user_2t1A9X7n8P5mQ9Z"
+  }
+]

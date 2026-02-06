@@ -1,17 +1,25 @@
-import { PrismaClient } from '@prisma/client'
+import { Pool } from 'pg';
+import { PrismaPg } from '@prisma/adapter-pg';
+import { PrismaClient } from '@prisma/client';
 
 const prismaClientSingleton = () => {
-  // We use the DATABASE_URL environment variable here
-  return new PrismaClient()
-}
+  // 1. Create a connection pool using your env variable
+  const pool = new Pool({ connectionString: process.env.DATABASE_URL });
+  
+  // 2. Wrap it in the Prisma Adapter
+  const adapter = new PrismaPg(pool);
+  
+  // 3. Pass the adapter to the Client
+  return new PrismaClient({ adapter });
+};
 
-// Global scope to persist across hot reloads
 declare const globalThis: {
-  prisma: ReturnType<typeof prismaClientSingleton> | undefined
+  prisma: ReturnType<typeof prismaClientSingleton> | undefined;
 } & typeof global;
 
-const db = globalThis.prisma ?? prismaClientSingleton()
+const db = globalThis.prisma ?? prismaClientSingleton();
 
-export default db
+export default db;
 
-if (process.env.NODE_ENV !== 'production') globalThis.prisma = db
+if (process.env.NODE_ENV !== 'production') globalThis.prisma = db;
+

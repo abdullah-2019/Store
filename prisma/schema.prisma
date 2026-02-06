@@ -5,3 +5,16 @@ generator client {
 datasource db {
   provider = "postgresql"
 }
+
+model Product {
+  id          String      @id @default(uuid())
+  name        String
+  company     String
+  description String?
+  featured    Boolean     @default(false)
+  image       String
+  price       Float
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  clerkId     String
+}
