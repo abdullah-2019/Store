@@ -1,13 +1,14 @@
-import { Button } from '@/components/ui/button';
-import db from '@/utils/db';
+import FeaturedProducts from '@/components/home/FeaturedProducts';
+import Hero from '@/components/home/Hero';
 
 async function HomePage() {
 
   return (
-    <main>
-      <h1>Welcome to the Store</h1>
-    </main>
+    <>
+      <Hero />
+      <FeaturedProducts />
+    </>
   );
-} 
+}
 
 export default HomePage;
