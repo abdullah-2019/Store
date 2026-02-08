@@ -1,11 +1,22 @@
-
 async function AboutPage() {
+  return (
+    <section className="flex flex-col items-center">
+      <h1 className="flex flex-wrap gap-2 sm:gap-x-6 items-center justify-center text-center text-4xl font-bold leading-none tracking-wide sm:text-xl">
+        We love
+        <span className="bg-primary py-2 px-4 rounded-lg tracking-widest text-white">
+          store
+        </span>
+      </h1>
 
-    return (
-        <div>
-            about page
-        </div>
-    );
+      <p className="mt-6 text-lg tracking-wide leading-8 max-w-2xl mx-auto text-muted-foreground">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab inventore
+        quae veritatis repellendus quia alias voluptatibus quo ipsum veniam
+        dignissimos, natus molestiae dolorem explicabo. Voluptatem hic, saepe
+        cum vitae, perspiciatis sed vero excepturi illum quisquam architecto ad
+        minus nostrum dolorum.
+      </p>
+    </section>
+  );
 }
 
 export default AboutPage;

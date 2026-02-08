@@ -9,23 +9,28 @@ import Image from 'next/image';
 const carouselItems = [hero1, hero2, hero3, hero4];
 
 export default function HeroCarousel() {
-  return <div className="hidden lg:block">
-    <Carousel>
-      <CarouselContent>
-        {carouselItems.map((image, index) => {
-          return (
+  return (
+    <div className="hidden lg:block overflow-x-hidden">
+      <Carousel>
+        <CarouselContent>
+          {carouselItems.map((image, index) => (
             <CarouselItem key={index}>
               <Card>
-                <CardContent className='p-2'>
-                  <Image src={image} alt={`Hero Image ${index + 1}`} className="w-full h-[24rem] object-cover rounded-md" />
+                <CardContent className="p-2">
+                  <Image
+                    src={image}
+                    alt={`Hero Image ${index + 1}`}
+                    className="w-full h-[24rem] object-cover rounded-md"
+                  />
                 </CardContent>
               </Card>
             </CarouselItem>
-          )
-        })}
-      </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
-    </Carousel>
-  </div>
+          ))}
+        </CarouselContent>
+        <CarouselPrevious />
+        <CarouselNext />
+      </Carousel>
+    </div>
+  );
 }
+
