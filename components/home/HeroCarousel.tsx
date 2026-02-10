@@ -15,8 +15,8 @@ export default function HeroCarousel() {
         <CarouselContent>
           {carouselItems.map((image, index) => (
             <CarouselItem key={index}>
-              <Card>
-                <CardContent className="p-2">
+              <Card className='bg-red'>
+                <CardContent className="p-0">
                   <Image
                     src={image}
                     alt={`Hero Image ${index + 1}`}
