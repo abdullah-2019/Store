@@ -15,4 +15,5 @@ export const fetchAllProducts = async() => {
             createdAt: 'desc'
         }
     });
+    return products;
 };

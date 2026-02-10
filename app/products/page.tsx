@@ -1,7 +1,14 @@
-function ProductPage () {
-    return <div>
-        Products
-    </div>
+import ProductsContainer from "@/components/products/ProductsContainer";
+
+function ProductPage ({
+    searchParams
+}:{
+    searchParams: {layout:string; search:string}
+}) {
+    const layout = searchParams.layout || 'grid';
+    const search = searchParams.search || '';
+    console.log(searchParams);
+    return <ProductsContainer layout={layout} search={search} />
 }
 
 export default ProductPage;
