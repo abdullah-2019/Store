@@ -19,26 +19,35 @@ async function ProductsContainer({ layout, search }: { layout: string, search: s
             {totalProducts} product{totalProducts > 1 && 's'}
           </h4>
           <div className="flex gap-x-4">
+            {/* Corrected variant logic for the List button */}
             <Button variant={layout === 'grid' ? 'default' : 'ghost'} asChild size='icon'>
               <Link href={`/products?layout=grid${searchTerm}`}>
                 <LuLayoutGrid />
               </Link>
             </Button>
-            <Button variant={layout === 'grid' ? 'default' : 'ghost'} asChild size='icon'>
+
+            <Button variant={layout === 'list' ? 'default' : 'ghost'} asChild size='icon'>
               <Link href={`/products?layout=list${searchTerm}`}>
                 <LuList />
               </Link>
             </Button>
           </div>
         </div>
+        <Separator className="my-4" />
       </section>
+
       {/*products*/}
       <div>
         {
-          totalProducts === 0 ? <h5 className="text-2xl mt016">
-            Sorry, we couldn't find any products matching your search criteria.
-          </h5> : layout === 'grid' ? <ProductsGrid products={products} /> : <ProductsList products={products} />
-        }
+          totalProducts === 0 ? (
+            <h5 className="text-2xl mt-16">
+              Sorry, we couldn't find any products matching your search criteria.
+            </h5>
+          ) : layout === 'grid' ? (
+            <ProductsGrid products={products} />
+          ) : (
+            <ProductsList products={products} />
+          )}
       </div>
     </>
   )

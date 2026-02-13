@@ -1,7 +1,9 @@
 import React from 'react'
 
-export default function FavorateToggleFrom() {
+function FavorateToggleFrom() {
   return (
     <div>FavorateToggleFrom</div>
   )
 }
+
+export default FavorateToggleFrom;
