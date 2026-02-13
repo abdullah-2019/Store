@@ -45,7 +45,7 @@ function ProductsList({ products }: { products: Product[] }) {
             </Link>
 
             {/* FAVORITE BUTTON */}
-            <div className="absolute bottom-8 right-8 z-5">
+            <div className="absolute bottom-8 right-8 z-10">
               <FavoriteToggleButton productId={productId} />
             </div>
           </article>
