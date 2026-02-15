@@ -14,9 +14,8 @@ function ProductsGrid({ products }: { products: Product[] }) {
         const dollarsAmount = FormatCurrency(price);
         return <article key={productId} className="group relative">
           <Link href={`products/${productId}`}>
-            <Card className="transform group-hover:shadow-xl transition-shadow duration-500">
-              <CardContent className="p-1">
-                {/* Added pt-1 to match the p-1 padding */}
+            <Card className="transform group-hover:shadow-xl transition-shadow duration-500 pt-2">
+              <CardContent className="p-2 pt-0 ">
                 <div className="relative h-56 md:h-40 rounded overflow-hidden bg-gray-100 pt-1 px-1">
                   <Image
                     src={image}
