@@ -9,8 +9,8 @@ export const fetchFeaturedProducts = async () => {
     return products;
 };
 
-export const fetchAllProducts = ({ search = '' }: { search?: string } = {}) => {
-    return db.product.findMany({
+export const fetchAllProducts = ({ search = '' }: { search: string }) => {
+    const products = db.product.findMany({
         where: {
             OR: [
                 { name: { contains: search, mode: 'insensitive' } },
@@ -21,4 +21,5 @@ export const fetchAllProducts = ({ search = '' }: { search?: string } = {}) => {
             createdAt: 'desc'
         }
     });
+    return products;
 };

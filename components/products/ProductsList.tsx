@@ -16,8 +16,8 @@ function ProductsList({ products }: { products: Product[] }) {
         return (
           <article key={productId} className="relative group">
             <Link href={`/products/${productId}`}>
-              <Card className="transform group-hover:shadow-xl transition-shadow duration-500">
-                <CardContent className="grid md:grid-cols-3">
+              <Card className="transform group-hover:shadow-xl transition-shadow duration-500 py-2">
+                <CardContent className="grid md:grid-cols-3 px-2">
                   {/* IMAGE */}
                   <div className="relative h-64 md:h-48 md:w-48 rounded overflow-hidden">
                     <Image
