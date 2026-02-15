@@ -15,7 +15,6 @@ export const fetchAllProducts = ({ search = '' }: { search?: string } = {}) => {
             OR: [
                 { name: { contains: search, mode: 'insensitive' } },
                 { company: { contains: search, mode: 'insensitive' } },
-                { price: { contains: search, mode: 'insensitive' } }
             ]
         },
         orderBy: {
