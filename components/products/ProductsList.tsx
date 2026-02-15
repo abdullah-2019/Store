@@ -17,27 +17,30 @@ function ProductsList({ products }: { products: Product[] }) {
           <article key={productId} className="relative group">
             <Link href={`/products/${productId}`}>
               <Card className="transform group-hover:shadow-xl transition-shadow duration-500 py-2">
-                <CardContent className="grid md:grid-cols-3 px-2">
-                  {/* IMAGE */}
-                  <div className="relative h-64 md:h-48 md:w-48 rounded overflow-hidden">
-                    <Image
-                      src={image}
-                      alt={name}
-                      fill
-                      sizes="(max-width:768px) 100vw, 200px"
-                      priority
-                      className="rounded w-full object-cover transform group-hover:scale-110 transition-transform duration-500"
-                    />
+                <CardContent className="flex flex-col md:flex-row gap-4 px-2">
+                  {/* IMAGE + INFO SIDE BY SIDE */}
+                  <div className="flex flex-col md:flex-row gap-4 flex-1">
+                    {/* IMAGE */}
+                    <div className="relative h-64 md:h-48 md:w-48 rounded overflow-hidden shrink-0">
+                      <Image
+                        src={image}
+                        alt={name}
+                        fill
+                        sizes="(max-width:768px) 100vw, 200px"
+                        priority
+                        className="rounded w-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                      />
+                    </div>
+
+                    {/* INFO - Aligned to top */}
+                    <div className="flex flex-col pt-2">
+                      <h2 className="text-xl font-semibold capitalize">{name}</h2>
+                      <h4 className="text-muted-foreground text-md">{company}</h4>
+                    </div>
                   </div>
 
-                  {/* INFO */}
-                  <div className="md:ml-16">
-                    <h2 className="text-xl font-semibold capitalize">{name}</h2>
-                    <h4 className="text-muted-foreground text-md">{company}</h4>
-                  </div>
-
-                  {/* PRICE */}
-                  <p className="text-muted-foreground text-lg md:ml-auto">
+                  {/* PRICE - Pushed to right on desktop */}
+                  <p className="text-muted-foreground text-lg md:self-start md:ml-auto pt-2">
                     {dollarsAmount}
                   </p>
                 </CardContent>
