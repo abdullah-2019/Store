@@ -1,6 +1,6 @@
 function FaroritatesPage() {
     return <div>
-        <h1>Favorates Page</h1>
+        <h1>Add to your favorites</h1>
     </div>
 }   
 export default FaroritatesPage;
