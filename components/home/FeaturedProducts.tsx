@@ -1,5 +1,4 @@
 import { fetchFeaturedProducts } from '@/utils/actions';
-import React from 'react'
 import EmptyList from '../global/EmptyList';
 import SectionTitle from '../global/SectionTitle';
 import ProductsGrid from '../products/ProductsGrid';
