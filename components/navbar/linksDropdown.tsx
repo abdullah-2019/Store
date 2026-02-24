@@ -8,6 +8,15 @@ import { LuAlignLeft } from "react-icons/lu";
 import Link from "next/link";
 import { Button } from "../ui/button";
 import { links } from "@/utils/links";
+import UserIcon from "./userIcon";
+import {
+    SignedOut,
+    SignInButton,
+    SignedIn,
+    SignUpButton
+} from "@clerk/nextjs";
+import { DropdownMenuSeparator } from "@radix-ui/react-dropdown-menu";
+import SingoutLink from "./signOutLink";
 
 function LinksDropdown() {
     return (
@@ -15,16 +24,35 @@ function LinksDropdown() {
             <DropdownMenuTrigger asChild>
                 <Button variant="outline" className="flex gap-4 max-w-[100px]">
                     <LuAlignLeft className="w-6 h-6" />
-                    <span className="sr-only">Open links menu</span>
+                    <UserIcon />
                 </Button>
             </DropdownMenuTrigger>
 
             <DropdownMenuContent className="w-40" align="start" sideOffset={10}>
-                {links.map((link) => (
-                    <DropdownMenuItem key={link.href} asChild>
-                        <Link href={link.href}>{link.label}</Link>
+                <SignedOut>
+                    <DropdownMenuItem>
+                        <SignInButton mode="modal">
+                            <button className="w-full text-left">Login</button>
+                        </SignInButton>
                     </DropdownMenuItem>
-                ))}
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem >
+                        <SignUpButton mode="modal">
+                            <button className="w-full text-left">Sign Up</button>
+                        </SignUpButton>
+                    </DropdownMenuItem>
+                </SignedOut>
+                <SignedIn>
+                    {links.map((link) => (
+                        <DropdownMenuItem key={link.href} asChild>
+                            <Link href={link.href}>{link.label}</Link>
+                        </DropdownMenuItem>
+                    ))}
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem>
+                        <SingoutLink />
+                    </DropdownMenuItem>
+                </SignedIn>
             </DropdownMenuContent>
         </DropdownMenu>
     );
