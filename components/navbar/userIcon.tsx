@@ -1,4 +1,4 @@
-import { LuUser } from "react-icons/lu";  // ✅ Correct
+import { LuUser2 } from "react-icons/lu";
 import { currentUser, auth } from "@clerk/nextjs/server";
 
 
