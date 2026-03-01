@@ -1,0 +1,32 @@
+'use client'
+
+import { adminLinks } from "@/utils/links";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Button } from "@/components/ui/button";
+import { use } from "react";
+
+function Sidebar() {
+    const pathname = usePathname();
+    return (
+        <aside>
+            {adminLinks.map((link) => {
+                const isActivePage = pathname === link.href;
+                const variant = isActivePage ? 'secondary' : 'ghost';
+                
+                return (
+                    <Button 
+                        asChild 
+                        key={link.href}
+                        className="w-full mb-2 capitalize font-normal" 
+                        variant={variant}
+                    >
+                        <Link href={link.href}>{link.label}</Link>
+                    </Button>
+                );
+            })}
+        </aside>
+    );
+}
+
+export default Sidebar;
