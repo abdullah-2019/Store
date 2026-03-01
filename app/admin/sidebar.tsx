@@ -18,7 +18,7 @@ function Sidebar() {
                     <Button 
                         asChild 
                         key={link.href}
-                        className="w-full mb-2 capitalize font-normal" 
+                        className="w-full mb-2 capitalize font-normal bg-yellow-500" 
                         variant={variant}
                     >
                         <Link href={link.href}>{link.label}</Link>
