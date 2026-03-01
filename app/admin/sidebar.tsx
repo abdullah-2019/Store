@@ -4,7 +4,6 @@ import { adminLinks } from "@/utils/links";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { use } from "react";
 
 function Sidebar() {
     const pathname = usePathname();
@@ -12,13 +11,13 @@ function Sidebar() {
         <aside>
             {adminLinks.map((link) => {
                 const isActivePage = pathname === link.href;
-                const variant = isActivePage ? 'secondary' : 'ghost';
+                const variant = isActivePage ? 'default' : 'ghost';
                 
                 return (
                     <Button 
                         asChild 
                         key={link.href}
-                        className="w-full mb-2 capitalize font-normal bg-yellow-500" 
+                        className="w-full mb-2 capitalize font-normal" 
                         variant={variant}
                     >
                         <Link href={link.href}>{link.label}</Link>
