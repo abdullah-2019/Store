@@ -15,10 +15,15 @@ import {
     SignedIn,
     SignUpButton
 } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs/server";
+
 import { DropdownMenuSeparator } from "@radix-ui/react-dropdown-menu";
 import SingoutLink from "./signOutLink";
 
-function LinksDropdown() {
+async function LinksDropdown() {
+    const { userId } = await(auth());
+    const isAdmin = userId === process.env.ADMIN_USER_ID;
+
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
@@ -43,11 +48,16 @@ function LinksDropdown() {
                     </DropdownMenuItem>
                 </SignedOut>
                 <SignedIn>
-                    {links.map((link) => (
-                        <DropdownMenuItem key={link.href} asChild>
-                            <Link href={link.href}>{link.label}</Link>
-                        </DropdownMenuItem>
-                    ))}
+                    {links.map((link) => {
+                        if (link.label === 'dashboard' && !isAdmin) {
+                            return null;
+                        }
+                        return (
+                            <DropdownMenuItem key={link.href} asChild>
+                                <Link href={link.href}>{link.label}</Link>
+                            </DropdownMenuItem>
+                        );
+                    })}
                     <DropdownMenuSeparator />
                     <DropdownMenuItem>
                         <SingoutLink />
